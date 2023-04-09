@@ -1,4 +1,4 @@
-import { Async } from "../../api";
+import { Async, PlacedOrder } from "../../api";
 import { ActionDataType } from "../types";
 
 export interface AppState {
@@ -14,5 +14,5 @@ export enum Actions {
   PAY_BILL = "APP_PAY_BILL",
 }
 
-export type ActionData = Mutable<AppState>;
+export type ActionData = Mutable<AppState> & { placedOrder: PlacedOrder };
 export type ActionTypes = ActionDataType<Actions, ActionData>;
