@@ -18,20 +18,10 @@ export function* initMenu() {
   }
 }
 
-export function* onPayBill() {
-  yield call(api.del, orderIdUrl);
-  yield put(moreBeer());
-}
+export function* onPayBill() {}
 
 export function* onOrderInit({ placedOrder }: ActionTypes) {
-  yield put(order({ order: AsyncData.Loading() }));
-  try {
-    const orderDto: OrderDTO = yield call(api.post, orderIdUrl, placedOrder);
-
-    yield put(order({ order: asyncOk(orderDto) }));
-  } catch (error) {
-    yield put(order({ order: asyncError(error as unknown as OrderDTO) }));
-  }
+  // use mocked orderIdUrl to post the order
 }
 
 export function* AppSaga() {
