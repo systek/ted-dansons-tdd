@@ -27,7 +27,6 @@ describe("Customer Component", () => {
 
   beforeEach(setup);
 
-  it("should be defined", () => expect(render()).toBeDefined());
   it("should render header", () => {
     render();
     expect(screen.getByTestId(TestId.header)).toBeInTheDocument();
@@ -38,16 +37,15 @@ describe("Customer Component", () => {
 
   describe("before any order is placed", () => {
     beforeEach(() => {
+      setup({ order: AsyncData.NotAsked() });
       render();
     });
 
-    it("should render Order Component", () =>
-      expect(screen.getByTestId(TestId.order)).toBeInTheDocument());
+    it("should render Order Component", () => expect(undefined).toBeDefined());
     it("should render no Loading Component", () =>
-      expect(screen.queryByTestId(TestId.loading)).toBeNull());
-
+      expect(undefined).toBeDefined());
     it("should render no Served Component", () =>
-      expect(screen.queryByTestId(TestId.served)).toBeNull());
+      expect(undefined).toBeDefined());
   });
 
   describe("when order is placed", () => {
@@ -57,12 +55,12 @@ describe("Customer Component", () => {
     });
 
     it("should render no Order Component", () =>
-      expect(screen.queryByTestId(TestId.order)).toBeNull());
+      expect(undefined).toBeDefined());
     it("should render Loading Component", () =>
-      expect(screen.getByTestId(TestId.loading)).toBeInTheDocument());
+      expect(undefined).toBeDefined());
 
     it("should render no Served Component", () =>
-      expect(screen.queryByTestId(TestId.served)).toBeNull());
+      expect(undefined).toBeDefined());
   });
 
   describe("when order is served", () => {
@@ -72,11 +70,11 @@ describe("Customer Component", () => {
     });
 
     it("should render no Order Component", () =>
-      expect(screen.queryByTestId(TestId.order)).toBeNull());
+      expect(undefined).toBeDefined());
     it("should render Loading Component", () =>
-      expect(screen.queryByTestId(TestId.loading)).toBeNull());
+      expect(undefined).toBeDefined());
 
     it("should render  Served Component", () =>
-      expect(screen.getByTestId(TestId.served)).toBeInTheDocument());
+      expect(undefined).toBeDefined());
   });
 });

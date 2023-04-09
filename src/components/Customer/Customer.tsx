@@ -1,8 +1,8 @@
 import cheersImage from "../../img/cheers.jpeg";
 import beersImage from "../../img/beer-glass.jpeg";
 import { Props, TestId } from "./types";
-import { Order } from "../Order";
-import { Served } from "../Served";
+//import { Order } from "../Order";
+//import { Served } from "../Served";
 
 const Loading = () => (
   <>
@@ -16,13 +16,7 @@ const Loading = () => (
   </>
 );
 
-const Customer = ({
-  order: asyncOrder,
-  menu,
-  orderAction,
-  moreBeer,
-  payBill,
-}: Props) => (
+const Customer = ({ order: asyncOrder }: Props) => (
   <div className="customer">
     <header data-testid={TestId.header}>
       <h3>Welcome to Cheers</h3>
@@ -31,18 +25,11 @@ const Customer = ({
 
     {asyncOrder.match({
       NotAsked: () => (
-        <Order {...{ "data-testid": TestId.order, menu, orderAction }} />
+        <></> // Should show order-component
       ),
-      Loading: () => <Loading />,
+      Loading: () => <></>, // Should show order-component
       Done: (order) => (
-        <Served
-          {...{
-            "data-testid": TestId.served,
-            order,
-            moreBeer,
-            payBill,
-          }}
-        />
+        <></> // should show served-component
       ),
     })}
   </div>

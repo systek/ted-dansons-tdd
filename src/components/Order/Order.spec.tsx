@@ -35,80 +35,36 @@ describe("Order Component", () => {
   });
 
   describe("when menu is loading", () => {
-    beforeEach(() =>
-      render(
-        <Order
-          {...{
-            orderAction,
-            menu: mockData.menu.loading,
-          }}
-        />
-      )
-    );
+    // beforeEach(() => ...); // render Order-component with menu loading
 
-    it("should not rendered menu", () =>
-      expect(screen.queryByTestId(TestId.menu)).toBeNull());
+    it("should not rendered menu", () => expect(undefined).toBeDefined());
 
-    it("should show load message", () =>
-      expect(
-        screen.getByText("Vent mens vi henter menyen")
-      ).toBeInTheDocument());
+    it("should show load message", () => expect(undefined).toBeDefined());
   });
 
   describe("after menu is loaded", () => {
-    beforeEach(() =>
-      render(
-        <Order
-          {...{
-            orderAction,
-            menu: mockData.menu.done,
-          }}
-        />
-      )
-    );
+    // beforeEach(() => ...); render Order-component with menu loaded successfully
 
-    it("should not show load message", () =>
-      expect(
-        screen.queryByText("Vent mens vi henter menyen")
-      ).not.toBeInTheDocument());
+    it("should not show load message", () => expect(undefined).toBeDefined());
 
-    it("should render menu", () =>
-      expect(screen.getAllByTestId(TestId.menu).at(0)).toBeInTheDocument());
+    it("should render menu", () => expect(undefined).toBeDefined());
     it("should render menu with 3 items", () =>
       expect(
         getAll(screen.getAllByTestId(TestId.menu).at(0)!, "li")
-      ).toHaveLength(3));
+      ).toHaveLength(0));
 
     it("should render menu with 3 different items", () =>
-      expect(
-        getAll(screen.getAllByTestId(TestId.menu).at(0)!, "li").map(
-          (li) => li.textContent
-        )
-      ).toEqual(["lager: 50,-", "ipa: 100,-", "porter: 50,-"]));
+      expect(undefined).toEqual(["lager: 50,-", "ipa: 100,-", "porter: 50,-"]));
 
-    it("should render order form", () =>
-      expect(screen.getAllByTestId(TestId.order).at(0)).toBeInTheDocument());
+    it("should render order form", () => expect(undefined).toBeDefined());
   });
 
   describe("if menu is fails", () => {
-    beforeEach(() =>
-      render(
-        <Order
-          {...{
-            orderAction,
-            menu: mockData.menu.fails,
-          }}
-        />
-      )
-    );
+    // beforeEach(() =>... ); render Order-component with menu loaded erroneous
 
-    it("should not rendered menu", () =>
-      expect(screen.queryByTestId(TestId.menu)).toBeNull());
+    it("should not rendered menu", () => expect(undefined).toBeDefined());
 
-    it("should not show load message", () =>
-      expect(
-        screen.queryByText("Vent mens vi henter menyen")
-      ).not.toBeInTheDocument());
+    it("should not show load message", () => expect(undefined).toBeDefined());
     it("should show error message", () =>
       expect(
         screen.getByText("Vi klarer ikke å laste menyen nå")
