@@ -26,25 +26,8 @@ describe("app.reducer", () => {
   });
 
   describe(`on action ${Actions.ORDER}`, () => {
-    describe.each([
-      [{}, undefined, {}],
-      [{}, {}, {}],
-      [{}, { order: "order" }, { order: "order" }],
-      [{}, { menu: "menu" }, {}],
-      [
-        { menu: "menu", order: "order" },
-        { menu: "new menu", order: "new order" },
-        { menu: "menu", order: "new order" },
-      ],
-    ] as Array<[AppState, Partial<ActionData>, AppState]>)(
-      "with initialState %j \n\t when action is dispatched with values %p",
-      (currentState, data, expected) => {
-        it(`should change state to ${shape(expected)}`, () =>
-          expect(appReducer(currentState, appActions.order(data))).toEqual(
-            expected
-          ));
-      }
-    );
+    it("description", () => expect(true).toBeFalsy());
+    // implementer tester for ulike verdier av init-state og ulike input parameter for å se hvordan state endres
   });
 
   describe(`on action ${Actions.MENU}`, () => {
@@ -91,23 +74,7 @@ describe("app.reducer", () => {
   });
 
   describe(`on action ${Actions.PAY_BILL}`, () => {
-    describe.each([
-      [{}, undefined, { order: AsyncData.NotAsked() }],
-      [{}, {}, { order: AsyncData.NotAsked() }],
-      [
-        { order: undefined },
-        { order: AsyncData.Loading() },
-        { order: AsyncData.NotAsked() },
-      ],
-      [{ menu: "menu" }, {}, { order: AsyncData.NotAsked(), menu: "menu" }],
-    ] as Array<[AppState, Partial<ActionData>, AppState]>)(
-      "with initialState %j \n\t when action is dispatched with values %p",
-      (currentState, data, expected) => {
-        it(`should change state to ${shape(expected)}`, () =>
-          expect(appReducer(currentState, appActions.payBill(data))).toEqual(
-            expected
-          ));
-      }
-    );
+    it("description", () => expect(true).toBeFalsy());
+    // implementer tester for ulike verdier av init-state og ulike input parameter for å se hvordan state endres
   });
 });
