@@ -6,11 +6,3 @@ type RootState = any;
 
 export const getAppState = (state: RootState): AppState =>
   selectFromRoot(state, "App");
-export const getOrder = createSelector(
-  getAppState,
-  ({ order }: AppState) => order
-);
-export const getMenu = createSelector(
-  getAppState,
-  ({ menu }: AppState) => menu
-);
