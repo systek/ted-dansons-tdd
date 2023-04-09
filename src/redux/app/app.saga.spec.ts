@@ -29,7 +29,7 @@ describe("app saga", () => {
 
   describe(`onOrderInit`, () => {
     describe("success", () => {
-      it("should fetch menu and put to state", () => {
+      it("should post order, and update state with response", () => {
         testSaga(onOrderInit, orderInit({ placedOrder }))
           .next()
           .put(order({ order: AsyncData.Loading() }))
@@ -44,7 +44,7 @@ describe("app saga", () => {
 
     describe("fails", () => {
       const rejectionMessage = "We do not have ipa";
-      it("should fetch menu and put to state", () => {
+      it("should post order, and update state with failing response (as error)", () => {
         testSaga(onOrderInit, orderInit({ placedOrder }))
           .next()
           .put(order({ order: AsyncData.Loading() }))
