@@ -7,7 +7,7 @@ export const orderTemplate: OrderDTO = {
   cost: 0,
 };
 
-const render = (template: string, data: Object) =>
+export const render = (template: string, data: Object) =>
   Object.entries({ ...data }).reduce(
     (res, [key, value]) =>
       res.replace(
