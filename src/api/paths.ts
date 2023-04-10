@@ -1,10 +1,13 @@
+export enum Params {
+  ordernr = ":ordernr",
+  receiptnr = ":receiptnr",
+}
+
 export const paths = {
   menu: "/menu",
   order: {
-    "/": "/order/:ordernr",
-    cancel: "/order/:ordernr/cancel",
-    receipt: "/receipt/:receiptnr",
+    root: `/order/${Params.ordernr}`,
+    cancel: `/order/${Params.ordernr}/cancel`,
+    receipt: `/receipt/${Params.receiptnr}`,
   },
 };
-
-export const orderIdUrl = "/order/123";

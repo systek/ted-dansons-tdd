@@ -14,5 +14,8 @@ export enum Actions {
   PAY_BILL = "APP_PAY_BILL",
 }
 
-export type ActionData = Mutable<AppState> & { placedOrder: PlacedOrder };
+export type ActionData = Mutable<AppState> & {
+  placedOrder: PlacedOrder;
+  orderNr: number;
+};
 export type ActionTypes = ActionDataType<Actions, ActionData>;
