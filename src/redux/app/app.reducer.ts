@@ -4,7 +4,7 @@ import {
   reducerForProducers,
   writeToDraft,
   writeValuesToDraft,
-} from "../../../gist/immer.utils/immer.utils";
+} from "../../gist/immer.utils/immer.utils";
 
 import { ActionTypes, Actions, AppState } from "./types";
 const { ORDER, ORDER_INIT, MENU, ORDER_MORE_BEER, PAY_BILL } = Actions;
