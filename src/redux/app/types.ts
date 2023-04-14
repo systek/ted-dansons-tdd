@@ -19,3 +19,4 @@ export type ActionData = Mutable<AppState> & {
   orderNr: number;
 };
 export type ActionTypes = ActionDataType<Actions, ActionData>;
+export type AppDispatchAction = DispatchAction<Partial<ActionData>>;

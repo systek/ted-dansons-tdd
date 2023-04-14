@@ -1,8 +1,9 @@
-import { Async, OrderDTO } from "../../api";
+import { Async } from "../../api";
+import { AppDispatchAction } from "../../redux/app";
 
 export type Props = {
   menu: Async.Menu;
-  orderAction: DispatchAction<OrderDTO>;
+  orderAction: AppDispatchAction;
 };
 export enum TestId {
   menu = "customer-menu",

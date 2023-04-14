@@ -1,9 +1,10 @@
 import { Result } from "../../api";
+import { AppDispatchAction } from "../../redux/app";
 
 export type Props = {
   order: Result.Order;
-  moreBeer: DispatchAction<void>;
-  payBill: DispatchAction<void>;
+  moreBeer: AppDispatchAction;
+  payBill: AppDispatchAction;
 };
 
 export enum TestId {

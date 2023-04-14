@@ -3,12 +3,13 @@ import { OrderDTO } from "../../api";
 
 import { Props, TestId } from "./types";
 const size = 15;
+const orderNr = 123;
 const PlaceOrder = ({ orderAction }: Pick<Props, "orderAction">) => {
   const [order, setOrder] = useState<OrderDTO | undefined>(undefined);
 
   useEffect(() => {
     if (orderAction && order) {
-      orderAction(order);
+      orderAction({ placedOrder: order, orderNr });
     }
   }, [orderAction, order]);
 

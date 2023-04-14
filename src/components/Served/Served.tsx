@@ -1,11 +1,6 @@
-import { OrderDTO } from "../../api";
+import { orderTemplate } from "../../api/api";
 import { Props, TestId } from "./types";
-export const orderTemplate: OrderDTO = {
-  lager: 0,
-  ipa: 0,
-  porter: 0,
-  cost: 0,
-};
+const orderNr = 123;
 
 export const render = (template: string, data: Object) =>
   Object.entries({ ...data }).reduce(
@@ -33,9 +28,11 @@ const Served = ({ order, moreBeer, payBill }: Props) => (
       ),
       Error: (error) => <p data-testid={TestId.error}>{error as string}</p>,
     })}
-    <button onClick={() => moreBeer()}>New Order</button>
+    <button onClick={() => moreBeer({ orderNr })}>New Order</button>
     {order.isOk() && (
-      <button onClick={() => payBill()}>Bay bill of {order.get().cost}</button>
+      <button onClick={() => payBill({ orderNr })}>
+        Bay bill of {order.get().cost}
+      </button>
     )}
   </div>
 );
