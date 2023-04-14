@@ -49,7 +49,10 @@ describe("Customer Component", () => {
         });
         it("should call orderAction", () => {
           expect(orderAction).toBeCalledTimes(1);
-          expect(orderAction).toHaveBeenCalledWith({ ipa: "2" });
+          expect(orderAction).toHaveBeenCalledWith({
+            placedOrder: { ipa: "2" },
+            orderNr: 123,
+          });
         });
       });
     });
