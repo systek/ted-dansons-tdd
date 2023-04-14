@@ -17,5 +17,5 @@ export const store: Store = createStore(
 sagaMiddleware.run(rootSaga);
 
 export type ActionTypes = AppActionTypes;
-
+export type DispatchAction<T> = Fn<[T], ActionTypes>;
 export const action = (type: ActionTypes): ActionTypes => store.dispatch(type);

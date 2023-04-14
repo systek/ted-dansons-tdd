@@ -1,4 +1,5 @@
 import { Async, PlacedOrder } from "../../api";
+import { DispatchAction } from "../store";
 import { ActionDataType } from "../types";
 
 export interface AppState {

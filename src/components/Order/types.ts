@@ -1,5 +1,5 @@
 import { Async } from "../../api";
-import { AppDispatchAction } from "../../redux/app";
+import { AppDispatchAction } from "../../redux/app/types";
 
 export type Props = {
   menu: Async.Menu;

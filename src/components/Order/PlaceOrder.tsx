@@ -5,13 +5,13 @@ import { Props, TestId } from "./types";
 const size = 15;
 const orderNr = 123;
 const PlaceOrder = ({ orderAction }: Pick<Props, "orderAction">) => {
-  const [order, setOrder] = useState<OrderDTO | undefined>(undefined);
+  const [placedOrder, setOrder] = useState<OrderDTO | undefined>(undefined);
 
   useEffect(() => {
-    if (orderAction && order) {
-      orderAction({ placedOrder: order, orderNr });
+    if (orderAction && placedOrder) {
+      orderAction({ placedOrder, orderNr });
     }
-  }, [orderAction, order]);
+  }, [orderAction, placedOrder]);
 
   const onOrderSubmit = (e: any) => {
     e.preventDefault();
