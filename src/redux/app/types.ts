@@ -1,13 +1,12 @@
 import { Async, PlacedOrder } from "../../api";
-
-import { ActionTypes } from "../types";
+import { ActionDataType } from "../types";
 
 export interface AppState {
   readonly menu: Async.Menu;
   readonly order: Async.Order;
 }
 
-export enum AppActions {
+export enum Actions {
   MENU = "APP_MENU",
   ORDER = "APP_ORDER",
   ORDER_INIT = "APP_ORDER_INIT",
@@ -15,10 +14,9 @@ export enum AppActions {
   PAY_BILL = "APP_PAY_BILL",
 }
 
-export interface AppActionData {
-  menu: Async.Menu;
-  order: Async.Order;
+export type ActionData = Mutable<AppState> & {
   placedOrder: PlacedOrder;
-}
-
-export type AppActionTypes = ActionTypes<AppActions, AppActionData>;
+  orderNr: number;
+};
+export type ActionTypes = ActionDataType<Actions, ActionData>;
+export type AppDispatchAction = DispatchAction<Partial<ActionData>>;
