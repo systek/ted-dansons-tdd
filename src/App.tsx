@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.scss";
 import { mockData } from "./api/__mocks__";
 import { Props, Customer } from "./components/Customer";
