@@ -1,12 +1,11 @@
 /* eslint-disable jest/no-mocks-import */
 /* eslint-disable testing-library/no-render-in-setup */
-
+import React from "react";
 import { AsyncData } from "@swan-io/boxed";
 import { screen, render as testRender } from "@testing-library/react";
 import { DeepPartial } from "redux";
 import {
   AppContainer,
-  Props,
   TestId,
   mapDispatchToProps,
   mapStateToProps,
@@ -16,7 +15,7 @@ import MockUtil from "./gist/test.utils/jest.utils";
 import { ActionTypes, Actions, initialState } from "./redux/app";
 import * as appSelectors from "./redux/app/app.selectors";
 import { RootState } from "./redux/root.reducer";
-
+import { Props } from "./components/Customer";
 jest.mock("./redux/app/app.selectors").mock("./components/Customer", () => ({
   __esModule: true,
   Customer: (props: any) => <div data-testid={props["data-testid"]}></div>,

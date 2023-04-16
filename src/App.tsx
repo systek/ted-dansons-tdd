@@ -1,19 +1,21 @@
+import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
+import "./App.scss";
+import { Customer, Props } from "./components/Customer";
 
 import "./App.scss";
 
-import { Props as CustomerProps, Customer } from "./components/Customer";
+import { Props as CustomerProps } from "./components/Customer";
 import { moreBeer, orderInit, payBill } from "./redux/app/app.actions";
+import { getMenu, getOrder } from "./redux/app/app.selectors";
 import { RootState } from "./redux/root.reducer";
 import { DispatchProps, StateProps } from "./redux/types";
-import { getMenu, getOrder } from "./redux/app/app.selectors";
 
-export type Props = CustomerProps;
 export enum TestId {
   customer = "app-customer",
 }
-export const AppContainer = ({ ...props }: Props) => (
+export const AppContainer = ({ ...props }: CustomerProps) => (
   <div className="App">
     <Customer {...{ "data-testid": TestId.customer, ...props }} />;
   </div>
