@@ -1,3 +1,4 @@
+import React from "react";
 import { MenuDTO } from "../../api";
 import PlaceOrder from "./PlaceOrder";
 import { Props, TestId } from "./types";
