@@ -1,6 +1,7 @@
 /* eslint-disable jest/no-mocks-import */
 /* eslint-disable testing-library/no-node-access */
 /* eslint-disable testing-library/no-render-in-setup */
+import React from "react";
 import Order from "./Order";
 
 import { render, screen } from "@testing-library/react";
