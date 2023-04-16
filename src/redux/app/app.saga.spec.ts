@@ -32,7 +32,7 @@ describe("app saga", () => {
     describe("success", () => {
       it("should post order, and update state with response", () => {
         testSaga(onOrderInit, orderInit({ placedOrder, orderNr: 123 }))
-          .throw("error" as any)
+          .throw("TEST AND IMPLEMENTATION MISSING" as any)
           .isDone();
       });
     });
@@ -41,7 +41,7 @@ describe("app saga", () => {
       const rejectionMessage = "We do not have ipa";
       it("should post order, and update state with failing response (as error)", () => {
         testSaga(onOrderInit, orderInit({ placedOrder, orderNr: 123 }))
-          .throw("error" as any)
+          .throw("TEST AND IMPLEMENTATION MISSING" as any)
           .isDone();
       });
     });
@@ -50,7 +50,7 @@ describe("app saga", () => {
   describe(`onPayBill`, () => {
     it("should fetch receipt and reset state", () => {
       testSaga(onPayBill, { orderNr: 456, type: Actions.PAY_BILL })
-        .throw("error" as any)
+        .throw("TEST AND IMPLEMENTATION MISSING" as any)
         .isDone();
     });
   });

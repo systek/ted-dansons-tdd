@@ -26,7 +26,7 @@ export function* onPayBill({ orderNr }: ActionTypes) {
 }
 
 export function* onOrderInit({ placedOrder, orderNr }: ActionTypes) {
-  // use mocked orderSerializer to generate url post the order
+  // use orderSerializer to generate url post the order
 }
 
 export function* AppSaga() {
