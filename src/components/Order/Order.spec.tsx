@@ -28,10 +28,7 @@ describe("Order Component", () => {
     it("should not rendered menu", () =>
       expect(screen.queryByTestId(TestId.menu)).toBeNull());
 
-    it("should show load message", () =>
-      expect(
-        screen.getByText("Vent mens vi henter menyen")
-      ).toBeInTheDocument());
+    it("should show load message", () => expect(undefined).toBeDefined());
   });
 
   describe("when menu is loading", () => {
@@ -54,7 +51,7 @@ describe("Order Component", () => {
       ).toHaveLength(0));
 
     it("should render menu with 3 different items", () =>
-      expect(undefined).toEqual(["lager: 50,-", "ipa: 100,-", "porter: 50,-"]));
+      expect(undefined).toBeDefined());
 
     it("should render order form", () => expect(undefined).toBeDefined());
   });
@@ -65,9 +62,6 @@ describe("Order Component", () => {
     it("should not rendered menu", () => expect(undefined).toBeDefined());
 
     it("should not show load message", () => expect(undefined).toBeDefined());
-    it("should show error message", () =>
-      expect(
-        screen.getByText("Vi klarer ikke å laste menyen nå")
-      ).toBeInTheDocument());
+    it("should show error message", () => expect(undefined).toBeDefined());
   });
 });

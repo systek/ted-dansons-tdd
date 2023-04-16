@@ -27,7 +27,7 @@ const Customer = ({ order: asyncOrder }: Props) => (
       NotAsked: () => (
         <></> // Should show order-component
       ),
-      Loading: () => <></>, // Should show order-component
+      Loading: () => <></>, // Should show loading-component
       Done: (order) => (
         <></> // should show served-component
       ),
