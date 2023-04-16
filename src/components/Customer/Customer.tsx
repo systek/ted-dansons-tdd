@@ -1,3 +1,4 @@
+import React from "react";
 import cheersImage from "../../img/cheers.jpeg";
 import beersImage from "../../img/beer-glass.jpeg";
 import { Props, TestId } from "./types";
