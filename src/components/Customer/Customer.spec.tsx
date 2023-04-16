@@ -1,4 +1,5 @@
 /* eslint-disable testing-library/no-render-in-setup */
+import React from "react";
 import { AsyncData } from "@swan-io/boxed";
 import { render as testRender, screen } from "@testing-library/react";
 
