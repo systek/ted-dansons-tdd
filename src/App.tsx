@@ -22,16 +22,9 @@ export const AppContainer = ({ ...props }: CustomerProps) => (
 );
 export const mapDispatchToProps = (
   dispatch: Dispatch
-): DispatchProps<Props> => ({
-  orderAction: bindActionCreators(orderInit, dispatch),
-  moreBeer: bindActionCreators(moreBeer, dispatch),
-  payBill: bindActionCreators(payBill, dispatch),
-});
+): DispatchProps<Props> => ({});
 
 export const mapStateToProps = (state: RootState): StateProps<Props> =>
-  ({
-    order: getOrder(state),
-    menu: getMenu(state),
-  } as Props);
+  ({} as Props);
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
+export default () => <>App is not connected</>;

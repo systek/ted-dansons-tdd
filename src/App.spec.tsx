@@ -37,48 +37,33 @@ describe("App Container", () => {
     );
     let props: Partial<Props>;
     beforeEach(() => {
-      mocks.getOrder?.mockReturnValue("order_value");
-      mocks.getMenu?.mockReturnValue("menu_value");
-      props = mapStateToProps(state);
+      // mock selectors and assign values to property by calling containers property mapper
     });
 
     it("delegates work to selectors", () => {
-      expect(mocks.getOrder).toHaveBeenCalledWith(state);
-      expect(mocks.getMenu).toHaveBeenCalledWith(state);
+      //  selector-mocks had been called with expected values
     });
 
     it("has assigned values", () => {
-      expect(Object.entries(props)).toEqual([
-        ["order", "order_value"],
-        ["menu", "menu_value"],
-      ]);
+      // props assign with expected result
     });
   });
   describe("mapDispatchToProps", () => {
     let dispatch: jest.Mock;
 
-    it("has assigned values", () => {
-      expect(Object.keys(mapDispatchToProps(jest.fn()))).toEqual([
-        "orderAction",
-        "moreBeer",
-        "payBill",
-      ]);
-    });
-
+    //check that  dispatch actions are connected
     describe.each([
-      ["moreBeer", { type: Actions.ORDER_MORE_BEER }],
-      ["orderAction", { type: Actions.ORDER_INIT }],
-      ["payBill", { type: Actions.PAY_BILL }],
+      // dispatcher function
+      [] as any,
     ] as Array<[keyof Props, ActionTypes]>)(
       "when action %s is called",
       (action, expected) => {
         beforeEach(() => {
           dispatch = jest.fn();
-          (mapDispatchToProps(dispatch) as any)[action]();
+          // call the function
         });
         it(`should dispatch actionType ${shape(expected)}`, () => {
-          expect(dispatch).toHaveBeenCalledTimes(1);
-          expect(dispatch).toBeCalledWith(expected);
+          // dispatch-mock should have been called with expected action
         });
       }
     );
@@ -91,13 +76,7 @@ describe("App Container", () => {
         });
       });
 
-      it("dispatches order", () => {
-        expect(dispatch).toHaveBeenCalledTimes(1);
-        expect(dispatch).toBeCalledWith({
-          placedOrder: "placedOrder",
-          type: Actions.ORDER_INIT,
-        });
-      });
+      it("dispatches order", () => {});
     });
   });
 
